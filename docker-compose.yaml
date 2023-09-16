@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  soc:
+    container_name: soc
+    image: soc
+    build: ./soc
+    stdin_open: true
+    tty: true    
+    network_mode: host
+    volumes:
+      - soc_data:/root/data   
+    
+volumes:
+  soc_data:
+    name: soc_data
