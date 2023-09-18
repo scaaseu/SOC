@@ -50,12 +50,12 @@ RUN apt -y install \
 	binwalk
 
 # Install SOC blue team tools
-RUN apt -y install \
-	kali-tools-identify \
-	kali-tools-protect \
-	kali-tools-detect \
-	kali-tools-respond \
-	kali-tools-recover 
+#RUN apt -y install \
+#	kali-tools-identify \
+#	kali-tools-protect \
+#	kali-tools-detect \
+#	kali-tools-respond \
+#	kali-tools-recover 
 
 # Install Tor and proxychains, then configure proxychains with Tor
 RUN apt -y install tor proxychains
