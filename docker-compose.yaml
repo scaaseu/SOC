@@ -9,16 +9,8 @@ services:
     tty: true    
     volumes:
       - soc_data:/root/data       
-    networks:
-      - soc    
+    network_mode: host
     
 volumes:
   soc_data:
     name: soc_data
-
-networks:
-  soc:
-    name: soc
-    driver: bridge
-    driver_opts:
-      com.docker.network.bridge.enable_ip_masquerade: "false"      
