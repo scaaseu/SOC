@@ -1,5 +1,7 @@
 FROM kalilinux/kali-rolling
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 WORKDIR /root
 
 RUN mkdir -p /root/data
@@ -32,7 +34,7 @@ RUN apt -y install \
 	npm
 
 # Install SOC red team tools
-RUN DEBIAN_FRONTEND=noninteractive apt -y install \
+RUN apt -y install \
 	kali-tools-top10 \
 	exploitdb \
 	man-db \
@@ -48,7 +50,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt -y install \
 	binwalk
 
 # Install SOC blue team tools
-RUn apt -y install \
+RUN apt -y install \
 	kali-tools-identify \
 	kali-tools-protect \
 	kali-tools-detect \
