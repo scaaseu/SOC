@@ -11,10 +11,16 @@ RUN apt -y update && DEBIAN_FRONTEND=noninteractive apt -y dist-upgrade && apt -
 
 # Install common and useful tools
 RUN apt -y install \
+	ca-certificates \
+	build-essential \
+	apt-transport-https \
+	sudo \
 	bash-completion \
 	curl \
 	wget \
 	vim \
+	neovim \
+	python3-neovim \
 	nano \
 	git \
 	subversion \
@@ -51,12 +57,11 @@ RUN apt -y install \
 	binwalk
 
 # Install SOC blue team tools
-#RUN apt -y install \
-#	kali-tools-identify \
-#	kali-tools-protect \
-#	kali-tools-detect \
-#	kali-tools-respond \
-#	kali-tools-recover 
+RUN apt install kali-tools-identify -y
+RUN apt install kali-tools-protect -y
+RUN apt install kali-tools-detect -y
+RUN apt install kali-tools-respond -y
+RUN apt install kali-tools-recover -y
 
 # Install Tor and proxychains, then configure proxychains with Tor
 RUN apt -y install tor proxychains

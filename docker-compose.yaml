@@ -2,7 +2,7 @@ version: '3'
 
 services:
   onionize:
-    container_name: darkcloud-onionize
+    container_name: soc-onionize
     image: torservers/onionize
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
