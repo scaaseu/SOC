@@ -1,16 +1,31 @@
 version: '3'
 
 services:
+  onionize:
+    container_name: darkcloud-onionize
+    image: torservers/onionize
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - soc
   soc:
     container_name: soc
     image: soc
     build: ./soc
+    environment:
+      - ONIONSERVICE_NAME=winter_is_coming    
     stdin_open: true
     tty: true    
-    network_mode: host
     volumes:
-      - soc_data:/root/data   
+      - soc_data:/root/data       
+    networks:
+      - soc    
     
 volumes:
   soc_data:
     name: soc_data
+
+networks:
+  soc:
+    name: soc
+    driver: bridge

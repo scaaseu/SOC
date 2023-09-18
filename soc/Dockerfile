@@ -8,13 +8,52 @@ RUN mkdir -p /root/data
 RUN apt -y update && DEBIAN_FRONTEND=noninteractive apt -y dist-upgrade && apt -y autoremove && apt clean
 
 # Install common and useful tools
-RUN apt -y install curl wget vim git net-tools whois netcat-traditional pciutils usbutils dos2unix gdebi w3m 
+RUN apt -y install \
+	bash-completion \
+	curl \
+	wget \
+	vim \
+	nano \
+	git \
+	net-tools \
+	whois \
+	netcat-traditional \
+	pciutils \
+	usbutils \
+	dos2unix \
+	gdebi \
+	w3m 
 
 # Install useful languages
-RUN apt -y install python3-pip golang nodejs npm
+RUN apt -y install \
+	python3-pip \
+	golang \
+	nodejs \
+	npm
 
-# Install cybersecurity useful tools
-RUN DEBIAN_FRONTEND=noninteractive apt -y install kali-tools-top10 exploitdb man-db dirb nikto wpscan uniscan lsof apktool dex2jar ltrace strace binwalk
+# Install SOC red team tools
+RUN DEBIAN_FRONTEND=noninteractive apt -y install \
+	kali-tools-top10 \
+	exploitdb \
+	man-db \
+	dirb \
+	nikto \
+	wpscan \
+	uniscan \
+	lsof \
+	apktool \
+	dex2jar \
+	ltrace \
+	strace \
+	binwalk
+
+# Install SOC blue team tools
+RUn apt -y install \
+	kali-tools-identify \
+	kali-tools-protect \
+	kali-tools-detect \
+	kali-tools-respond \
+	kali-tools-recover 
 
 # Install Tor and proxychains, then configure proxychains with Tor
 RUN apt -y install tor proxychains
