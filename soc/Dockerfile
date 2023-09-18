@@ -65,7 +65,6 @@ COPY config/proxychains.conf /etc/proxychains.conf
 # Install ZSH shell with custom settings and set it as default shell
 RUN apt -y install zsh
 COPY config/install.sh /root/install.sh
-RUN chmod +x /root/install.sh
 RUN sh -c /root/install.sh
 COPY config/.zshrc .
 
