@@ -1,19 +1,10 @@
 version: '3'
 
 services:
-  onionize:
-    container_name: soc-onionize
-    image: torservers/onionize
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    networks:
-      - soc
   soc:
     container_name: soc
     image: soc
     build: ./soc
-    environment:
-      - ONIONSERVICE_NAME=winter_is_coming    
     stdin_open: true
     tty: true    
     volumes:
@@ -29,3 +20,5 @@ networks:
   soc:
     name: soc
     driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: "false"      

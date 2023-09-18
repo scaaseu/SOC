@@ -73,4 +73,5 @@ COPY config/install.sh /root/install.sh
 RUN sh /root/install.sh
 COPY config/.zshrc .
 
-ENTRYPOINT ["/bin/zsh"]
+COPY config/entrypoint.sh /root/entrypoint.sh
+ENTRYPOINT ["/root/entrypoint.sh"]
