@@ -17,6 +17,7 @@ RUN apt -y install \
 	vim \
 	nano \
 	git \
+	subversion \
 	net-tools \
 	whois \
 	netcat-traditional \
